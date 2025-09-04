@@ -8,192 +8,49 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 
 // Messages in different languages
 const MESSAGES = {
-    en: `🎰 Get Premium Casinos, Poker & Sports Betting Handpicked & Verified for Your Area.
+    en: `🤖 The most accurate and profitable predictions powered by advanced AI for:
 
-🔹 Top Rated Online Casino 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-🔹 SportsBook: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
+    es: `🤖 Las predicciones más precisas y rentables impulsadas por IA avanzada para:
 
-🔹 Real Live Poker ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-🔹 Best Crypto Casino
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
+    ru: `🤖 Самые точные и прибыльные прогнозы на основе передового ИИ для:
 
-⚽️ Get daily premium sports betting tips! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-    es: `🎰 Obtén Casinos, Póker y Apuestas Deportivas Premium Seleccionados y Verificados para tu Área.
+    pt: `🤖 As previsões mais precisas e lucrativas alimentadas por IA avançada para:
 
-🔹 Casino Online Mejor Calificado 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-🔹 Casa de Apuestas: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
+    id: `🤖 Prediksi paling akurat dan menguntungkan didukung oleh AI canggih untuk:
 
-🔹 Póker en Vivo Real ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-🔹 Mejor Cripto Casino
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
+    de: `🤖 Die genauesten und profitabelsten Vorhersagen, unterstützt von fortschrittlicher KI für:
 
-⚽️ ¡Obtén consejos premium diarios de apuestas deportivas! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-    ru: `🎰 Получите Премиум Казино, Покер и Ставки на Спорт, Отобранные и Проверенные для Вашего Региона.
+    tr: `🤖 En doğru ve karlı tahminler, gelişmiş yapay zeka tarafından destekleniyor:
 
-🔹 Лучшее Онлайн Казино 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-🔹 Букмекер: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
+    ar: `🤖 أدق وأكثر التوقعات ربحية مدعومة بالذكاء الاصطناعي المتقدم لـ:
 
-🔹 Настоящий Живой Покер ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-🔹 Лучшее Крипто Казино
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
+    fr: `🤖 Les prédictions les plus précises et rentables alimentées par une IA avancée pour :
 
-⚽️ Получайте ежедневные премиум советы по спортивным ставкам! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-    pt: `🎰 Obtenha Cassinos, Pôquer e Apostas Esportivas Premium Selecionados e Verificados para Sua Região.
+    sv: `🤖 De mest exakta och lönsamma förutsägelserna drivna av avancerad AI för:
 
-🔹 Cassino Online Melhor Avaliado 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
+👉 https://www.sports-ai.dev/?ext=telegram_ad`,
 
-🔹 Casa de Apostas: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
+    he: `🤖 התחזיות המדויקות והרווחיות ביותר מופעלות על ידי בינה מלאכותית מתקדמת עבור:
 
-🔹 Pôquer Ao Vivo Real ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
-
-🔹 Melhor Cripto Cassino
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
-
-⚽️ Receba dicas premium diárias de apostas esportivas! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
-
-    id: `🎰 Dapatkan Kasino, Poker & Taruhan Olahraga Premium yang Dipilih & Diverifikasi untuk Wilayah Anda.
-
-🔹 Kasino Online Teratas 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
-
-🔹 SportsBook: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
-
-🔹 Poker Langsung Asli ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
-
-🔹 Kasino Kripto Terbaik
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
-
-⚽️ Dapatkan tips taruhan olahraga premium harian! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
-
-    de: `🎰 Holen Sie sich Premium-Casinos, Poker & Sportwetten, handverlesen & verifiziert für Ihre Region.
-
-🔹 Top Bewertetes Online-Casino 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
-
-🔹 Sportwetten: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
-
-🔹 Echtes Live Poker ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
-
-🔹 Bestes Krypto-Casino
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
-
-⚽️ Erhalte tägliche Premium Sportwetten Tipps! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
-
-    tr: `🎰 Bölgeniz için seçilmiş ve doğrulanmış Premium Kumarhane, Poker & Spor Bahisleri alın.
-
-🔹 En İyi Online Kumarhane 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
-
-🔹 Spor Bahisleri: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
-
-🔹 Gerçek Canlı Poker ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
-
-🔹 En İyi Kripto Kumarhane
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
-
-⚽️ Günlük premium spor bahis ipuçları alın! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
-
-    ar: `🎰 احصل على كازينوهات وبوكر ومراهنات رياضية مميزة تم اختيارها والتحقق منها لمنطقتك.
-
-🔹 أفضل كازينو عبر الإنترنت 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
-
-🔹 مراهنات رياضية: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
-
-🔹 بوكر حي حقيقي ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
-
-🔹 أفضل كازينو للعملات المشفرة
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
-
-⚽️ احصل على نصائح مراهنات رياضية يومية مميزة! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
-
-    fr: `🎰 Obtenez des Casinos, du Poker & des Paris Sportifs Premium Sélectionnés & Vérifiés pour Votre Région.
-
-🔹 Casino en Ligne le Mieux Noté 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
-
-🔹 Paris Sportifs: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
-
-🔹 Véritable Poker en Direct ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
-
-🔹 Meilleur Crypto-Casino
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
-
-⚽️ Recevez des conseils premium quotidiens sur les paris sportifs! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
-
-    sv: `🎰 Få Premium Casinoer, Poker & Sportbetting Handplockade & Verifierade för Ditt Område.
-
-🔹 Topprankat Online Casino 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
-
-🔹 SportsBook: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
-
-🔹 Äkta Live Poker ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
-
-🔹 Bästa Kryptocasino
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
-
-⚽️ Få dagliga premium sportbetting tips! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`,
-
-    he: `🎰 קבל קזינו, פוקר והימורי ספורט פרמיום נבחרים ומאומתים לאזור שלך.
-
-🔹 קזינו מקוון מדורג ביותר 🎰
-👉 https://casinobetings.com?kw=best_gambling_tips_bot
-
-🔹 הימורי ספורט: ⚽️🏀🎾
-👉 https://sportbetings.com?kw=best_gambling_tips_bot
-
-🔹 פוקר חי אמיתי ♣️
-👉 https://pokerbetnow.com?kw=best_gambling_tips_bot
-
-🔹 קזינו קריפטו הטוב ביותר
-👉 https://crypto-bettings.com?kw=best_gambling_tips_bot
-
-⚽️ קבל טיפים יומיים פרמיום להימורי ספורט! 🏈
-🏀 https://bit.ly/sport_bet_tips ⚾️`
+👉 https://www.sports-ai.dev/?ext=telegram_ad`
 };
 
 // Function to get message by language code
