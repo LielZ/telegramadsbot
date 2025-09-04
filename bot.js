@@ -11,58 +11,67 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 
 // Messages in different languages
 const MESSAGES = {
-    en: `🤖 The most accurate and profitable predictions powered by advanced AI for:
+    en: `🎰 Play *Quick Hit Slots* – Free Slot Game on Google Play!  
+✨ 100% Free to Play – No Real Money Required!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    es: `🤖 Las predicciones más precisas y rentables impulsadas por IA avanzada para:
+    es: `🎰 Juega *Quick Hit Slots* – Juego de tragamonedas gratis en Google Play!  
+✨ 100% gratis para jugar – ¡sin dinero real!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    ru: `🤖 Самые точные и прибыльные прогнозы на основе передового ИИ для:
+    ru: `🎰 Играйте в *Quick Hit Slots* – Бесплатные слоты в Google Play!  
+✨ 100% бесплатно – без реальных денег!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    pt: `🤖 As previsões mais precisas e lucrativas alimentadas por IA avançada para:
+    pt: `🎰 Jogue *Quick Hit Slots* – Jogo de caça-níqueis grátis no Google Play!  
+✨ 100% grátis – sem dinheiro real!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    id: `🤖 Prediksi paling akurat dan menguntungkan didukung oleh AI canggih untuk:
+    id: `🎰 Mainkan *Quick Hit Slots* – Game Slot Gratis di Google Play!  
+✨ 100% Gratis – Tanpa Uang Asli!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    de: `🤖 Die genauesten und profitabelsten Vorhersagen, unterstützt von fortschrittlicher KI für:
+    de: `🎰 Spiele *Quick Hit Slots* – Kostenloses Slot-Spiel bei Google Play!  
+✨ 100% kostenlos – kein echtes Geld nötig!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    tr: `🤖 En doğru ve karlı tahminler, gelişmiş yapay zeka tarafından destekleniyor:
+    tr: `🎰 *Quick Hit Slots* oyna – Google Play’de Ücretsiz Slot Oyunu!  
+✨ %100 Ücretsiz – Gerçek Para Yok!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    ar: `🤖 أدق وأكثر التوقعات ربحية مدعومة بالذكاء الاصطناعي المتقدم لـ:
+    ar: `🎰 العب *Quick Hit Slots* – لعبة سلوتس مجانية على Google Play!  
+✨ 100٪ مجانية – بدون أموال حقيقية!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    fr: `🤖 Les prédictions les plus précises et rentables alimentées par une IA avancée pour :
+    fr: `🎰 Jouez à *Quick Hit Slots* – Jeu de machines à sous gratuit sur Google Play!  
+✨ 100% gratuit – pas d'argent réel!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    sv: `🤖 De mest exakta och lönsamma förutsägelserna drivna av avancerad AI för:
+    sv: `🎰 Spela *Quick Hit Slots* – Gratis slotspel på Google Play!  
+✨ 100% gratis – inga riktiga pengar!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`,
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
 
-    he: `🤖 התחזיות המדויקות והרווחיות ביותר מופעלות על ידי בינה מלאכותית מתקדמת עבור:
+    he: `🎰 שחקו ב-*Quick Hit Slots* – משחק מכונות מזל חינמי ב-Google Play!  
+✨ 100% חינמי – לא נדרש כסף אמיתי!  
 
-👉 https://www.sports-ai.dev/?ext=telegram_ad`
+👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`
 };
 
 // Function to get message by language code
 function getMessage(langCode) {
     if (!langCode) return MESSAGES.en;
     
-    // Extract main language code (e.g., "en-US" -> "en")
     const mainLang = langCode.split('-')[0];
-    
     return MESSAGES[mainLang] || MESSAGES.en;
 }
 
@@ -74,7 +83,7 @@ bot.onText(/\/start/, (msg) => {
     
     console.log(`✓ Received /start from user ${msg.from.username || msg.from.id} (lang: ${langCode})`);
     
-    bot.sendMessage(chatId, message)
+    bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
         .then(() => {
             console.log(`✓ Sent response to user ${msg.from.username || msg.from.id}`);
         })
@@ -85,20 +94,16 @@ bot.onText(/\/start/, (msg) => {
 
 // Handle any text message (fallback)
 bot.on('message', (msg) => {
-    // Skip if it's a command (already handled above)
-    if (msg.text && msg.text.startsWith('/')) {
-        return;
-    }
+    if (msg.text && msg.text.startsWith('/')) return;
     
     const chatId = msg.chat.id;
     const langCode = msg.from.language_code;
     
     console.log(`✓ Received message from user ${msg.from.username || msg.from.id}: "${msg.text}"`);
     
-    // Send the same promotional message for any text
     const message = getMessage(langCode);
     
-    bot.sendMessage(chatId, message)
+    bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
         .then(() => {
             console.log(`✓ Sent promotional message to user ${msg.from.username || msg.from.id}`);
         })
@@ -116,7 +121,6 @@ bot.on('polling_error', (error) => {
     console.error('✗ Polling error:', error);
 });
 
-// Start message
 console.log('🚀 Telegram Bot started successfully!');
 console.log('📱 Send /start to your bot to test it');
 console.log('🛑 Press Ctrl+C to stop the bot');
