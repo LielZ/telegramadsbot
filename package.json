@@ -1,0 +1,16 @@
+{
+  "name": "telegram-ads-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for casino/gambling ads with multi-language support",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "node bot.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0"
+  },
+  "keywords": ["telegram", "bot", "casino", "gambling"],
+  "author": "",
+  "license": "MIT"
+}
