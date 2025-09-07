@@ -1,6 +1,6 @@
 # Telegram Bot Setup
 
-## JavaScript Bot (RECOMMENDED - WORKS!)
+## JavaScript Bot
 
 **Quick Start:**
 1. **Install Node.js** from https://nodejs.org/ if not installed
@@ -12,14 +12,6 @@
 npm install
 node bot.js
 ```
-
-## Python Bot (HAS ISSUES)
-
-The Python version has dependency conflicts. Use JavaScript version instead.
-
-If you want to try Python anyway:
-1. **Double-click `quick_fix.bat`** - This will install dependencies and run the bot
-2. **Or double-click `install_and_run.bat`** - More detailed version with testing
 
 ## Files
 
@@ -45,7 +37,7 @@ If you want to try Python anyway:
 
 ## Token
 
-The bot token is hardcoded in the files. For production, set environment variable:
+environment variable:
 ```bash
 # Node.js
 export TELEGRAM_BOT_TOKEN=your_token_here
