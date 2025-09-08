@@ -1,5 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
-const TOKEN = process.env.BOT_TOKEN;
+const TOKEN = process.env.BOT_TOKEN_FOR_FKPC;
 
 if (!TOKEN) {
     console.error("❌ BOT_TOKEN is not set! Please define it as an environment variable.");
@@ -11,60 +11,60 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 
 // Messages in different languages
 const MESSAGES = {
-    en: `🎰 Play *Quick Hit Slots* – Free Slot Game on Google Play!  
-✨ 100% Free to Play – No Real Money Required!  
+    en: `⚽ Are you ready for real penalty kicks?  
+Play *Football Kicks Pro Soccer* – PREMIUM football game with free kick competitions & multiplayer!  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    es: `🎰 Juega *Quick Hit Slots* – Juego de tragamonedas gratis en Google Play!  
-✨ 100% gratis para jugar – ¡sin dinero real!  
+    es: `⚽ ¿Listo para penaltis reales?  
+Juega *Football Kicks Pro Soccer* – Juego de fútbol PREMIUM con competiciones de tiros libres y multijugador.  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    ru: `🎰 Играйте в *Quick Hit Slots* – Бесплатные слоты в Google Play!  
-✨ 100% бесплатно – без реальных денег!  
+    ru: `⚽ Готовы к настоящим пенальти?  
+Играйте в *Football Kicks Pro Soccer* – ПРЕМИУМ футбольная игра с штрафными ударами и мультиплеером!  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    pt: `🎰 Jogue *Quick Hit Slots* – Jogo de caça-níqueis grátis no Google Play!  
-✨ 100% grátis – sem dinheiro real!  
+    pt: `⚽ Preparado para pênaltis reais?  
+Jogue *Football Kicks Pro Soccer* – Jogo de futebol PREMIUM com competições de faltas e multijogador.  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    id: `🎰 Mainkan *Quick Hit Slots* – Game Slot Gratis di Google Play!  
-✨ 100% Gratis – Tanpa Uang Asli!  
+    id: `⚽ Siap untuk adu penalti nyata?  
+Mainkan *Football Kicks Pro Soccer* – Game sepak bola PREMIUM dengan tendangan bebas & multiplayer!  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    de: `🎰 Spiele *Quick Hit Slots* – Kostenloses Slot-Spiel bei Google Play!  
-✨ 100% kostenlos – kein echtes Geld nötig!  
+    de: `⚽ Bereit für echte Elfmeter?  
+Spiele *Football Kicks Pro Soccer* – PREMIUM-Fußballspiel mit Freistoß-Wettbewerben & Multiplayer!  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    tr: `🎰 *Quick Hit Slots* oyna – Google Play’de Ücretsiz Slot Oyunu!  
-✨ %100 Ücretsiz – Gerçek Para Yok!  
+    tr: `⚽ Gerçek penaltılara hazır mısın?  
+*Football Kicks Pro Soccer* oyna – PREMIUM futbol oyunu, serbest vuruşlar ve çok oyunculu!  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    ar: `🎰 العب *Quick Hit Slots* – لعبة سلوتس مجانية على Google Play!  
-✨ 100٪ مجانية – بدون أموال حقيقية!  
+    ar: `⚽ هل أنت مستعد لركلات الجزاء الحقيقية؟  
+العب *Football Kicks Pro Soccer* – لعبة كرة القدم PREMIUM مع ركلات حرة وطور متعدد اللاعبين!  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    fr: `🎰 Jouez à *Quick Hit Slots* – Jeu de machines à sous gratuit sur Google Play!  
-✨ 100% gratuit – pas d'argent réel!  
+    fr: `⚽ Prêt pour de vrais penaltys ?  
+Jouez à *Football Kicks Pro Soccer* – Jeu de football PREMIUM avec coups francs et multijoueur.  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    sv: `🎰 Spela *Quick Hit Slots* – Gratis slotspel på Google Play!  
-✨ 100% gratis – inga riktiga pengar!  
+    sv: `⚽ Redo för riktiga straffsparkar?  
+Spela *Football Kicks Pro Soccer* – PREMIUM fotbollsspel med frisparkar & multiplayer!  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`,
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`,
 
-    he: `🎰 שחקו ב-*Quick Hit Slots* – משחק מכונות מזל חינמי ב-Google Play!  
-✨ 100% חינמי – לא נדרש כסף אמיתי!  
+    he: `⚽ מוכן לפנדלים אמיתיים?  
+שחק ב-*Football Kicks Pro Soccer* – משחק כדורגל PREMIUM עם בעיטות חופשיות ומולטיפלייר!  
 
-👉 https://play.google.com/store/apps/details?id=com.ballytechnologies.quickhitslots`
+👉 https://play.google.com/store/apps/details?id=sk.inlogic.footballkicksprosoccer`
 };
 
 // Function to get message by language code
